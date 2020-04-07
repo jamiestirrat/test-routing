@@ -6,6 +6,18 @@ export default class Friends extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Add friends here!</Text>
+        {
+          this.props.screenProps.possibleFriends.map((friend, index) => (
+            <Button
+              key={ friend }
+              title={ `Add ${ friend }` }
+              onPress={() =>
+                this.props.screenProps.addFriend(index)
+              }
+            />
+          )
+        )
+        }
         <Button
           title="Back to home"
           onPress={() =>
